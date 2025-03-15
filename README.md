@@ -46,3 +46,17 @@ Warning about deprecated findDOMNode usage
 Detecting unexpected side effects
 Detecting legacy context API
 Ensuring reusable state
+
+
+How to create a toggle functionality for the sidebar?
+-Using global state i.e. using redux.Wherever there is confusion in state uplifting,use redux.Also,use reduc dev tools to check if it is working or not.
+
+How to set up redux?
+-Install @reduxjs/react
+-Install react-redux
+-Create a store
+-Create a slice
+-Wherever you want to use it,use the useDispatch hook and call the reducer function.
+-To fetch/subsribe use the selector using useSelector.
+-remember to subscribe only to the part which is needed 
+const isMenuOpen = useSelector((store) => store.app.isMenuOpen);

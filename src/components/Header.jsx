@@ -1,10 +1,17 @@
 import { HAM_ICON, YT_LOGO , USER_ICON , SEARCH_LOGO } from "../utils/constants";
-
+import {useDispatch} from "react-redux";
+import { toggleMenu } from "../utils/appSlice";
 const Header = () => {
+  const dispatch = useDispatch();
+  const toggleMenuHandler = () => {
+    dispatch(
+      toggleMenu()
+    )
+  }
   return (
     <div className="grid grid-flow-col p-1">
       <div className="flex col-span-1">
-        <img src={HAM_ICON} alt="hamburger-logo" className="h-10 mt-3 mb-3 ml-3 p-1 cursor-pointer"></img>
+        <img src={HAM_ICON} alt="hamburger-logo" className="h-10 mt-3 mb-3 ml-3 p-1 cursor-pointer" onClick={toggleMenuHandler}></img>
         <img src={YT_LOGO} alt="yt-logo" className="h-10 mt-3 mb-3 ml-2 p-1 cursor-pointer"></img>
       </div>
       <div className="flex col-span-10 justify-center items-center">
