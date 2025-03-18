@@ -60,3 +60,8 @@ How to set up redux?
 -To fetch/subsribe use the selector using useSelector.
 -remember to subscribe only to the part which is needed 
 const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+
+Using The APp router and its children:
+-The outlet is a placeholder for children components.
+-It goes where the components are interchanging.
+-We load the sticky componenet like a Header by default and others[children] with outlet.

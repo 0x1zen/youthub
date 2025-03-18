@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux"; // Assuming Redux is used for state management
 import Sidebar from "./Sidebar.jsx";
 import MainContainer from "./MainContainer.jsx";
+import { Outlet } from "react-router";
 const Body = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
@@ -10,7 +11,7 @@ const Body = () => {
         <Sidebar />
       </div>
       <div className={isMenuOpen ? "col-span-10" : "col-span-11"}>
-        <MainContainer />
+        <Outlet />
       </div>
     </div>
   );

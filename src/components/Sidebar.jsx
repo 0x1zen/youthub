@@ -1,15 +1,17 @@
 import { useSelector } from "react-redux";
 import { FaHome, FaMusic, FaFilm, FaGamepad, FaListUl } from "react-icons/fa";
+import { Link } from "react-router";
 
 const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
   return isMenuOpen ? (
     <div className="col-span-1 shadow-lg flex flex-col h-screen sticky top-20  overflow-y-auto">
-      <h1 className="text-2xl mb-4 flex items-center">
+      <Link to={"/"}><h1 className="text-2xl mb-4 flex items-center">
         <FaHome className="mr-2" />
         Home
       </h1>
+      </Link>
       <h1 className="text-2xl mb-4 flex items-center">
         <FaListUl className="mr-2" />
         Shorts
@@ -39,7 +41,7 @@ const Sidebar = () => {
     </div>
   ) : (
     <div className="col-span-1 shadow-lg flex flex-col items-center h-screen">
-      <FaHome className="text-3xl mb-4" />
+      <Link to={"/"}><FaHome className="text-3xl mb-4" /></Link>
       <FaListUl className="text-3xl mb-4" />
       <FaListUl className="text-3xl mb-4" />
       <ul className="space-y-2">
