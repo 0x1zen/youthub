@@ -2,7 +2,7 @@ import Header from "./components/Header.jsx";
 import Body from "./components/Body.jsx";
 import { Provider } from "react-redux";
 import store from "./utils/store.jsx";
-import {createBrowserRouter, RouterProvider} from "react-router";
+import { createBrowserRouter, RouterProvider} from "react-router-dom";
 import MainContainer from "./components/MainContainer.jsx";
 import WatchPage from "./components/WatchPage.jsx";
 const appRouter=createBrowserRouter([

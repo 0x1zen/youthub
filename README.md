@@ -65,3 +65,23 @@ Using The APp router and its children:
 -The outlet is a placeholder for children components.
 -It goes where the components are interchanging.
 -We load the sticky componenet like a Header by default and others[children] with outlet.
+
+const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
+
+-In the above code store is the main store we create.
+-app is the name inside the reducer of store.
+-isMenuOpen is a function inside reducers of appSlice.
+
+-So this basically looks inside of a reducer.
+
+
+How do we get the param using useSearchParams hook?
+
+When the to link looks like "/watch?v="
+
+so we have to specifically search for the value of v param
+
+const [searchParams] = useSearchParams();
+console.log(searchParams.get("v"));
+
+-so we use the above code
