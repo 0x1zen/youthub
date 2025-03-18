@@ -5,16 +5,16 @@ const Sidebar = () => {
   const isMenuOpen = useSelector((store) => store.app.isMenuOpen);
 
   return isMenuOpen ? (
-    <div className="col-span-1 shadow-lg flex flex-col h-screen">
-      <h1 className="text-3xl mb-4 flex items-center">
+    <div className="col-span-1 shadow-lg flex flex-col h-screen sticky top-20  overflow-y-auto">
+      <h1 className="text-2xl mb-4 flex items-center">
         <FaHome className="mr-2" />
         Home
       </h1>
-      <h1 className="text-3xl mb-4 flex items-center">
+      <h1 className="text-2xl mb-4 flex items-center">
         <FaListUl className="mr-2" />
         Shorts
       </h1>
-      <h1 className="text-3xl mb-4 flex items-center">
+      <h1 className="text-2xl mb-4 flex items-center">
         <FaListUl className="mr-2" />
         Subscriptions
       </h1>
