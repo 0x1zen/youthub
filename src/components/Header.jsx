@@ -2,7 +2,23 @@ import { HAM_ICON, YT_LOGO , USER_ICON , SEARCH_LOGO } from "../utils/constants"
 import {useDispatch} from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import {Link,BrowserRouter} from "react-router-dom";
+import {useEffect, useState} from "react";
+import { YOUTUBE_SEARCH_API } from "../utils/constants";
 const Header = () => {
+  const [input,setInput]=useState("");
+
+  useEffect(()=>{
+    search();
+    // Make an api call for every key press
+    // But if the difference between each key press is less than 200ms decline the api call.
+  },[input]);
+
+  const search = async()=>{
+    const response=await fetch(YOUTUBE_SEARCH_API + input);
+    const data=await response.json();
+    console.log(data[1]);
+  }
+
   const dispatch = useDispatch();
   const toggleMenuHandler = () => {
     dispatch(
@@ -20,7 +36,7 @@ const Header = () => {
         </BrowserRouter>
       </div>
       <div className="flex col-span-10 justify-center items-center">
-        <input type="text" placeholder="Search" className="h-8 w-6/12 mt-3 mb-3 p-2 rounded-l-full border-1 border-r-0 border-gray-500"></input>
+        <input type="text" placeholder="Search" className="h-8 w-6/12 mt-3 mb-3 p-2 rounded-l-full border-1 border-r-0 border-gray-500" value={input} onChange={(e)=>setInput(e.target.value)}></input>
         <button className="h-8 w-20 mt-3 mb-3 border-gray-500 border-1 rounded-r-full cursor-pointer">
             {/* <img src={SEARCH_LOGO} className="w-full h-full rounded-r-full"></img> */}
             Search

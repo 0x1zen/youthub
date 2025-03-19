@@ -85,3 +85,14 @@ const [searchParams] = useSearchParams();
 console.log(searchParams.get("v"));
 
 -so we use the above code
+
+Revising Higher Order Components:-
+-HOCs are functions which receive a component and returns a component adding something over top of it.
+-HOCs are pure functions.
+
+Debouncing:-
+-Debouncing is a technique used to reduce the number of api calls.
+-When searching something,websites like youtube,flipkart gives you suggesstions.
+-So,after every key press,new suggesstions occur.
+-That is if we type slow.
+-But,If we type fast,instead of making api call for every key press,it makes API call for a bundle of key presses.This technique is called as debouncing.
