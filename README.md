@@ -96,3 +96,55 @@ Debouncing:-
 -So,after every key press,new suggesstions occur.
 -That is if we type slow.
 -But,If we type fast,instead of making api call for every key press,it makes API call for a bundle of key presses.This technique is called as debouncing.
+
+Below is the code for debouncing:-
+useEffect(()=>{
+    setTimeout(()=>search(),200);
+    console.log("useEffect called");
+    // Make an api call for every key press
+    // But if the difference between each key press is less than 200ms decline the api call.
+  },[input]);
+
+  const search = async()=>{
+    const response=await fetch(YOUTUBE_SEARCH_API + input);
+    const data=await response.json();
+    console.log(data[1]);
+  }
+
+-How does the above code work?
+-The useffect will only called after the input changes.
+-If i type something,the setTimeout timer will start.
+-If i type multiple keys,for every key,new timer will start.
+-Every time a new timer starts because every time we change the input,the component re-renders,so every time a new timer starts.
+
+eg.
+key pressed - i
+1.componenet renders
+2.useEffect called
+3.starts timer =>Makes api call after 200ms.
+
+key pressed - in
+1.component re-renders
+2.useEffect called
+3.Starts timer =>makes api call after 200ms.
+
+-The return function of the useEffect hook in React, often referred to as the cleanup function, is not called every time a component re-renders. Instead, it is called in the following scenarios:
+
+Before the component unmounts: This is to clean up any subscriptions, event listeners, or any side effects set up after the initial render.
+Before the dependencies of the useEffect change: If the useEffect hook is used with a dependency array, the cleanup function will run every time the dependencies change, right before the next effect is run.
+
+useEffect(()=>{
+    const timer=setTimeout(()=>search(),200);
+
+    return ()=>{
+      clearInterval(timer);
+    }
+    // Make an api call for every key press
+    // But if the difference between each key press is less than 200ms decline the api call.
+  },[input]);   
+
+onFocus and onBlur :-
+
+-If the input box is onFocus then only show suggestions,and if we click anywhere else,that is blur,then dont show suggestions.
+
+Concept Of Caching:-
