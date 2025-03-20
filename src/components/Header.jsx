@@ -4,14 +4,15 @@ import { toggleMenu } from "../utils/appSlice";
 import { Link } from "react-router";
 import { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
+import { cacheResults } from "../utils/searchSlice";
 
 const Header = () => {
   const [input, setInput] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  const searchCache = useSelector((store) => store.search)
-
+  const searchCache = useSelector((store) => store.search);
+  const dispatch = useDispatch();
   useEffect(() => {
     // const timer = setTimeout(() => search(), 300);
 
@@ -19,12 +20,12 @@ const Header = () => {
       setSuggestions(searchCache[input]);
     }
     else{
-      const timer = setTimeout(() => search(), 300);
+      search()
     }
 
-    return () => {
-      clearInterval(timer);
-    }
+    // return () => {
+    //   clearInterval(timer);
+    // }
     // Make an api call for every key press
     // But if the difference between each key press is less than 200ms decline the api call.
   }, [input]);
@@ -33,9 +34,12 @@ const Header = () => {
     const response = await fetch(YOUTUBE_SEARCH_API + input);
     const data = await response.json();
     setSuggestions(data[1]);
+    dispatch(
+      cacheResults({[input] : data[1]})
+    )
+    console.log("API Called" + data[1]);
   }
-
-  const dispatch = useDispatch();
+  
   const toggleMenuHandler = () => {
     dispatch(
       toggleMenu()

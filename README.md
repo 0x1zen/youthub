@@ -147,4 +147,20 @@ onFocus and onBlur :-
 
 -If the input box is onFocus then only show suggestions,and if we click anywhere else,that is blur,then dont show suggestions.
 
-Concept Of Caching:-
+The Object.assign function :-
+-It takes two arguements 
+Object.assign(target, ...sources)
+-Where it mutates target and sources inside it.
+
+Caching inside of redux store:-
+
+cacheResults({[input] : data[1]})
+
+
+The syntax {[input]: data[1]} in JavaScript is used to dynamically set an object property based on the value of the input variable. This is known as computed property names in JavaScript ES6. Here's how it works and why it's used in your context:
+
+Computed Property Names
+Purpose: Allows you to set an object's property key based on the value of a variable at runtime.
+Syntax: The square brackets [] around the variable input tell JavaScript to evaluate the variable and use its value as the property name.
+
+Yes, in this context, the term "property name" refers to the key of an object in JavaScript.
