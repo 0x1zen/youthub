@@ -18,6 +18,8 @@ const YOUTUBE_SEARCH_API =
 
 const YOUTUBE_SEARCH_RESULTS_API = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=";
 
+const LIVE_CHAT_ICON = "https://yt4.ggpht.com/ytc/AIdro_meZQDvkVwIytlz05tUr4sKYRoxduo30MYm6fDWZDFwo5Dx5x44u4bpmQY2f_R4uW4yGQ=s64-c-k-c0x00ffffff-no-rj";
+
 export {
   YT_LOGO,
   HAM_ICON,
@@ -27,4 +29,5 @@ export {
   YOUTUBE_API,
   YOUTUBE_SEARCH_API,
   YOUTUBE_SEARCH_RESULTS_API,
+  LIVE_CHAT_ICON
 };

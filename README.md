@@ -188,3 +188,25 @@ const CommentsList = ({ comments }) => {
 }
 
 -Just like the above example
+
+***How do we build a live chat feature ?
+
+Challenges:-
+-Get live data
+-Update the UI with the live data.
+
+Intro to websockets:-
+-Web sockets is a two way connection.
+-It is like a handshake between server and UI.
+-Once the handshake is done,we can quickly access data.
+-It is bidirectional live data.
+-By websockets,we can send data from UI to backend and backend to UI also.
+-API Polling:-
+  -API polling is a method where the client repeatedly requests data from the server at regular intervals.
+  -This is typically accomplished by making HTTP requests to an API endpoint.
+-For websocket connection,there is no regular interval.
+
+For example:-
+-For applications like cricbuzz,APi polling is used after every 25 seconds.
+-In apps like whatsapp,web scokets are used.
+
