@@ -164,3 +164,27 @@ Purpose: Allows you to set an object's property key based on the value of a vari
 Syntax: The square brackets [] around the variable input tell JavaScript to evaluate the variable and use its value as the property name.
 
 Yes, in this context, the term "property name" refers to the key of an object in JavaScript.
+
+
+***N-level nested comments usig recursion:-
+-by using the same component inside of the component we can achieve n-level nesting.
+
+const CommentsList = ({ comments }) => {
+  return (
+    <div>
+      {comments.map((comment,index)=>{
+        const {replies}=comment;
+        return (
+          <div>
+            <Comment data={comment}></Comment>
+            <div className="pl-3 border-l-2">
+              <CommentsList comments={replies}></CommentsList>
+            </div>
+          </div>
+        )
+      })}
+    </div>
+  )
+}
+
+-Just like the above example

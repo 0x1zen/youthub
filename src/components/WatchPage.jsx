@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams,useSearchParams } from 'react-router';
 import {useDispatch} from "react-redux";
 import {closeMenu} from "../utils/appSlice.jsx";
+import CommentsContainer from './CommentsContainer.jsx';
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
   const videoId=searchParams.get("v");
@@ -20,9 +21,9 @@ const WatchPage = () => {
        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
     </div>
-    <div className='m-2 p-2'>
+    <div className='m-2 p-2 max-w-120'>
       <h1 className='font-bold'>Comments:</h1>
-
+        <CommentsContainer></CommentsContainer>
     </div>
     </div>
   )
