@@ -3,7 +3,7 @@ import { LIVE_CHAT_ICON, USER_ICON } from '../utils/constants'
 
 const ChatMessage = ({name,message}) => {
   return (
-    <div className='flex h-14 w-[140px] bg-gray-100 p-2'>
+    <div className='flex h-14 w-[180px] bg-gray-100 p-2'>
         <div className='h-6 w-6'>
         <img  src={USER_ICON}></img>
         </div>

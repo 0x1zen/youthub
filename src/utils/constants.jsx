@@ -20,6 +20,7 @@ const YOUTUBE_SEARCH_RESULTS_API = "https://youtube.googleapis.com/youtube/v3/se
 
 const LIVE_CHAT_ICON = "https://yt4.ggpht.com/ytc/AIdro_meZQDvkVwIytlz05tUr4sKYRoxduo30MYm6fDWZDFwo5Dx5x44u4bpmQY2f_R4uW4yGQ=s64-c-k-c0x00ffffff-no-rj";
 
+const OFFSET_LIVE_CHAT=5;
 export {
   YT_LOGO,
   HAM_ICON,
@@ -29,5 +30,6 @@ export {
   YOUTUBE_API,
   YOUTUBE_SEARCH_API,
   YOUTUBE_SEARCH_RESULTS_API,
-  LIVE_CHAT_ICON
+  LIVE_CHAT_ICON,
+  OFFSET_LIVE_CHAT
 };
