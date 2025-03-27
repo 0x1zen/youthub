@@ -46,7 +46,6 @@ const VideoContainer = () => {
             setLoading(false);
         }
     };
-    const dispatch=useDispatch();
 
     if (loading) return <p>Loading...</p>;
     if (error) return <p>{error}</p>;
