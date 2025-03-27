@@ -5,6 +5,7 @@ import { Link } from "react-router";
 import { useEffect, useState } from "react";
 import { YOUTUBE_SEARCH_API } from "../utils/constants";
 import { cacheResults } from "../utils/searchSlice";
+import { addQuery } from "../utils/searchQuerySlice";
 
 const Header = () => {
   const [input, setInput] = useState("");
@@ -45,6 +46,9 @@ const Header = () => {
       toggleMenu()
     )
   }
+  const handleClick = () =>{
+    dispatch(addQuery(input));
+  }
   return (
     <div className="sticky top-0 z-50 grid grid-flow-col p-1 bg-white">
       <div className="flex col-span-1">
@@ -56,7 +60,7 @@ const Header = () => {
       <div className="flex flex-col col-span-10 justify-center items-center relative">
         <div className="flex w-150">
           <input type="text" placeholder="Search" className="h-8 w-6/12 mt-3 mb-3 p-2 rounded-l-full border-1 border-r-0 border-gray-500" value={input} onChange={(e) => setInput(e.target.value)} onFocus={() => setShowSuggestions(true)} onBlur={() => setShowSuggestions(false)}></input>
-          <button className="h-8 w-20 mt-3 mb-3 border-gray-500 border-1 rounded-r-full cursor-pointer">
+          <button className="h-8 w-20 mt-3 mb-3 border-gray-500 border-1 rounded-r-full cursor-pointer" onClick={handleClick}>
             <img src={SEARCH_LOGO} className="w-full h-full rounded-r-full"></img>
             {/* Search */}
           </button>
@@ -68,7 +72,7 @@ const Header = () => {
                 <Link to={"/search"}>
                   <div className="flex hover:bg-gray-300">
                     <img className="w-5 h-5 mt-3" src={SEARCH_LOGO}></img>
-                    <li className="cursor-pointer py-2 px-5 " >{item}</li>
+                    <li className="cursor-pointer py-2 px-5 ">{item}</li>
                   </div>
                 </Link>
               )

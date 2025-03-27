@@ -1,6 +1,6 @@
 import React from 'react'
 import ChatMessage from './ChatMessage'
-import {useEffect} from "react";
+import {useEffect,useState} from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { addMessage } from '../utils/chatSlice.jsx';
 import makeid from '../utils/helper.jsx';
@@ -31,6 +31,8 @@ var nameList = [
 
 var index=0;
 const LiveChat = () => {
+    const [myMessage,setMyMessage]=useState("");
+
   const dispatch=useDispatch();
 
   useEffect(()=>{
@@ -40,20 +42,34 @@ const LiveChat = () => {
         dispatch(addMessage({name:nameList[index],message:makeid(20)}));
         index++;
       }
-    },2000);
+    },1500);
     return ()=>{
       clearInterval(i);
     }
   },[]);
   const chatMessages=useSelector((store)=>store.chat.messages);
+  const handleClick = ()=>{
+    dispatch(addMessage({name:"CustomMessage",message:myMessage}));
+    setMyMessage("");
+  }
   return (
-    <div className='max-h-[300px] overflow-y-scroll flex flex-col-reverse'>
+    <div>
+      <div className='min-h-[350px] overflow-y-scroll flex flex-col-reverse'>
         <h1 className='font-bold'>Live Chat</h1>
         {chatMessages.map((chat,index)=>{
           const {name,message}=chat;
           return <ChatMessage key={index} name={name} message={message} ></ChatMessage>
         })}
     </div>
+    <form className='flex' onSubmit={(e)=>{
+      e.preventDefault();
+      handleClick
+      }}>
+      <input className='border-2 border-black m-2' value={myMessage} onChange={(e)=>setMyMessage(e.target.value)}></input>
+      <button className='border-2 border-black m-2' onClick={handleClick}>Submit</button>
+    </form>
+    </div>
+    
   )
 }
 
